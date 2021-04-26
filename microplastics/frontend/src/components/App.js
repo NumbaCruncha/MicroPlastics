@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("api/fieldwork")
+    fetch("/api/fieldwork")
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
@@ -34,6 +34,7 @@ class App extends Component {
   render() {
     return (
       <ul>
+        <h1>This is the heading</h1>
         {this.state.data.map(site => {
           return (
             <li key={site.id}>
