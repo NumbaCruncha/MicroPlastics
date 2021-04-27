@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Microplastics Database</title>
   <link rel="stylesheet" href="../../static/frontend/styles.css">
+  {% load static %}
+  <script src="{% static "/frontend/main.js" %}"></script>
 </head>
-<body>
-<div id="app">
-    <!-- React will load here -->
-</div>
-</body>
-{% load static %}
-<script src="{% static "/frontend/main.js" %}"></script>
+
+
+
+
+
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-wide w3-padding w3-card">
@@ -95,9 +95,23 @@
       </div>
     </div>
   </div> -->
+
+
+
   <h1><button class="w3-button w3-light-grey w3-block">Add a New Observation</button></h1>
+  
   <!-- About Section -->
   <div class="w3-container w3-padding-32" id="about">
+
+    <div>
+      <body>
+        <div id="app">
+            <!-- React will load here -->
+        </div>
+        </body>
+        {% load static %}
+        <script src="{% static "/frontend/main.js" %}"></script>
+    </div>
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
     <p>The Microplastics Database was developed to <b>measure</b> and <b>monitor</b> sources of microplastics along the southern coastline. 
     </p>

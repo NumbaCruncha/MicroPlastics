@@ -1,14 +1,6 @@
 from django.contrib.gis.db import models
 from django.contrib.gis.geos import Point
 
-SUBURBS = [
-    ('AB', 'Andersons Bay 1'),
-    ('EK', 'Ettrick'),
-    ('HB', 'Halfway Bush'),
-    ('MG', 'Mosegiel 3')
-]
-
-
 
 class Organisation(models.Model):
     business_name = models.CharField(default=None, max_length=200)
@@ -23,4 +15,10 @@ class FieldUser(models.Model):
 class Site(models.Model):
     code = models.CharField(max_length=5)
     area = models.PolygonField()
-    feeder = models.CharField(max_length=200, choices=SUBURBS)
+
+
+class Observation(models.Model):
+    id = models.IntegerField(primary_key=True)
+    datetime = models.DateTimeField()
+    field_user = models.ForeignKey(FieldUser, on_delete=models.CASCADE)
+    site_id = models.ForeignKey(Site, on_delete=models.CASCADE)
