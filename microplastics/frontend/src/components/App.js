@@ -1,25 +1,25 @@
-import React, { Component } from "react"
-import { render } from "react-dom"
+import React, { Component } from "react";
+import { render } from "react-dom";
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       data: [],
       loaded: false,
       placeholder: "Loading"
-    }
+    };
   }
 
   componentDidMount() {
-    fetch("/api/fieldwork")
+    fetch("api/fieldwork")
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
             return { placeholder: "Something went wrong!" };
-          })
+          });
         }
-        return response.json()
+        return response.json();
       })
       .then(data => {
         this.setState(() => {
@@ -33,12 +33,12 @@ class App extends Component {
 
   render() {
     return (
+      
       <ul>
-        <h1>This is the heading</h1>
-        {this.state.data.map(site => {
+        {this.state.data.map(contact => {
           return (
-            <li key={site.id}>
-              {site.code} - {site.feeder}
+            <li key={contact.id}>
+              {contact.datetime} --- {contact.field_user}
             </li>
           )
         })}
@@ -48,6 +48,5 @@ class App extends Component {
 }
 
 export default App;
-
 const container = document.getElementById("app");
 render(<App />, container);

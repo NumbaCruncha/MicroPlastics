@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'frontend'
+    'frontend',
+    'django_extensions',
+    # 'django-cors-headers'
     # 'world'
 ]
 
@@ -52,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'microplastics.urls'
@@ -134,3 +137,9 @@ GEOS_LIBRARY_PATH = 'C:\\OSGeo4W64\\bin\\geos_c'
 OGR_LIBRARY_PATH = 'C:\\OSGeo4W64\\bin\\ogr_OCI'
 
 PROJ_LIBRARY_PATH = 'C:\\OSGeo4W64\\bin\\proj_5_2'
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
+}

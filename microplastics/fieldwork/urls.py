@@ -6,5 +6,6 @@ app_name = 'fieldwork'
 
 urlpatterns = [
     # path('', views.index, name='index'),
-    path('api/fieldwork/', views.SiteListCreate.as_view())
-]
+    path('api/fieldwork/', views.ObservationListCreate.as_view()),
+    path('observation/', views.observation, name="observation")
+    ]

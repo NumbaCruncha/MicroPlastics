@@ -1,7 +1,9 @@
 from rest_framework import serializers
-from .models import Site
+from .models import Observation
 
-class SiteSerializer(serializers.ModelSerializer):
+class ObservationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Site
-        fields = ('id', 'code', 'feeder')
+        model = Observation
+        fields = ('id', 'datetime', 'field_user')
+
+
